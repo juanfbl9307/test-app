@@ -6,7 +6,7 @@ const port = process.env.APP_PORT
 async function getByAxios() {
     try {
         const axiosResponse = await axios.get(
-            'http://twoapp/say-hello',
+            'http://apptwo/say-hello',
         );
         return axiosResponse.data;
     } catch (e) {

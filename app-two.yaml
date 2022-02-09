@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apptwo-pod
+  labels:
+    app: apptwo
+spec:
+  containers:
+    - image: juanfbl93/app_two
+      name: apptwo
