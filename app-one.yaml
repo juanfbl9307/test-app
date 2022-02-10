@@ -3,8 +3,11 @@ kind: Pod
 metadata:
   name: appone-pod
   labels:
+    department: app
     app: appone
 spec:
+  hostname: appone
+  subdomain: app-subdomain
   containers:
     - image: juanfbl93/app_one
       name: appone

@@ -3,8 +3,11 @@ kind: Pod
 metadata:
   name: apptwo-pod
   labels:
+    department: app
     app: apptwo
 spec:
+  hostname: apptwo
+  subdomain: app-subdomain
   containers:
     - image: juanfbl93/app_two
       name: apptwo

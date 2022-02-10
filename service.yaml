@@ -1,20 +1,38 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: appone
+  name: service-appone
 spec:
+  type: LoadBalancer
+  selector:
+    app: appone
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 3000
+      protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: apptwo
+  name: service-apptwo
 spec:
+  type: LoadBalancer
+  selector:
+    app: apptwo
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 3001
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-subdomain
+spec:
+  selector:
+    department: app
+  clusterIP: None
+  ports:
+    - name: foo # Actually, no port is needed.
+      port: 1234
+      targetPort: 1234
