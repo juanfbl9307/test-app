@@ -11,9 +11,9 @@ spec:
         paths:
           - path: /appone
             backend:
-              serviceName: service-appone
+              serviceName: appone
               servicePort: 80
           - path: /apptwo
             backend:
-              serviceName: service-apptwo
+              serviceName: apptwo
               servicePort: 80
