@@ -6,7 +6,7 @@ const port = process.env.APP_PORT
 async function getByAxios() {
     try {
         const axiosResponse = await axios.get(
-            'http://appone/say-hello',
+            'http://appone:8080/appone/say-hello',
         );
         return axiosResponse.data;
     } catch (e) {
@@ -15,18 +15,20 @@ async function getByAxios() {
     }
 }
 
-app.get('/app-one', async (req, res) => {
+app.get('/apptwo/app-one', async (req, res) => {
     const response = await getByAxios();
-    res.send(`Who is there? ${response}`);
+    res.json({
+        message: `Who is there? ${response.message}`
+    });
 });
 
 
-app.get('/', (req, res) => {
-    res.send('Hello From App Two!');
+app.get('/apptwo', (req, res) => {
+    res.json({message:'Hello From App Two!'});
 });
 
-app.get('/say-hello', (req, res) => {
-    res.send('Hey, here App Two!');
+app.get('/apptwo/say-hello', (req, res) => {
+    res.json({message:'Hey, here App Two!'});
 });
 
 app.listen(port, () => {

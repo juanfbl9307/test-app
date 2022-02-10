@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-appone
+spec:
+  selector:
+    app: appone-pod
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-apptwo
+spec:
+  selector:
+    app: apptwo-pod
+  ports:
+    - port: 80
+      targetPort: 3001
+      protocol: TCP
