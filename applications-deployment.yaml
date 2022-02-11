@@ -36,10 +36,6 @@ spec:
       name: high
       protocol: TCP
       targetPort: 3000
-    - port: 80
-      name: low
-      protocol: TCP
-      targetPort: 3000
   selector:
     app: appone-pod
 ---
@@ -76,10 +72,6 @@ spec:
   ports:
     - port: 8080
       name: high
-      protocol: TCP
-      targetPort: 3001
-    - port: 80
-      name: low
       protocol: TCP
       targetPort: 3001
   selector:
