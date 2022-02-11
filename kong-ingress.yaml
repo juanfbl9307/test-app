@@ -1,9 +1,16 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: app-jwt
+plugin: jwt
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: gateway
   annotations:
     kubernetes.io/ingress.class: kong
+    konghq.com/plugins: app-jwt
 spec:
   rules:
     - host: apps.com
@@ -12,8 +19,8 @@ spec:
           - path: /appone
             backend:
               serviceName: appone
-              servicePort: 80
+              servicePort: 8080
           - path: /apptwo
             backend:
               serviceName: apptwo
-              servicePort: 80
+              servicePort: 8080
