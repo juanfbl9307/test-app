@@ -4,11 +4,11 @@ WORKDIR /app
 
 ENV APP_PORT=3000
 
-COPY package*.json .
+COPY /package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./ ./
 
 EXPOSE 3000
 

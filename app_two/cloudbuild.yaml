@@ -1,0 +1,4 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: 'app_two'
+    args: ['build', '-t', 'app_two:$BRANCH_NAME','.']

@@ -4,11 +4,11 @@ WORKDIR /app
 
 ENV APP_PORT=3001
 
-COPY /app_two/package*.json ./
+COPY /package*.json ./
 
 RUN npm install
 
-COPY /app_two ./
+COPY  ./ ./
 
 EXPOSE 3001
 
