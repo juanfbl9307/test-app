@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appone-deployment
+  namespace: web-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appone-pod
+  template:
+    metadata:
+      labels:
+        app: appone-pod
+    spec:
+      hostname: appone
+      serviceAccountName: default
+      containers:
+        - name: appone
+          image: docker.io/juanfbl93/app_one:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+      imagePullSecrets:
+        - name: docker-secret
