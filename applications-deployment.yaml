@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: appone-deployment
+  namespace: web-example
 spec:
   replicas: 1
   selector:
@@ -30,6 +31,7 @@ metadata:
   labels:
     app: appone
   name: appone
+  namespace: web-example
 spec:
   ports:
     - port: 8080
@@ -43,6 +45,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apptwo-deployment
+  namespace: web-example
 spec:
   replicas: 1
   selector:
@@ -68,6 +71,7 @@ metadata:
   labels:
     app: apptwo
   name: apptwo
+  namespace: web-example
 spec:
   ports:
     - port: 8080
